@@ -6,35 +6,19 @@
 
 // @lc code=start
 /**
+/**
  * @param {string[]} strs
  * @return {string}
  */
 var longestCommonPrefix = function (strs) {
-  var prefix = "";
-  var temp = "";
-  // var shortestIndex;
-  var currentWordLength = strs[0].length;
-  for (var i = 0; i < strs.length; i++) {
-    if (strs[i].length <= currentWordLength) {
-      currentWordLength = strs[i].length;
-      shortestIndex = i;
-      temp = strs[i];
-      currentWordLength = strs[i].length;
-    }
+  let res = "";
+  strs.sort();
+  const first = strs[0];
+  const last = strs[strs.length - 1];
+  for (let i = 0; i < first.length; i++) {
+    if (first[i] !== last[i]) break;
+    res += first[i];
   }
-
-  for (var i = currentWordLength - 1; i >= 0; i--) {
-    strs.forEach((word) => {
-      console.log(word[i], temp[i]);
-      if (word[i] !== temp[i]) {
-        const temp2 = temp.slice(0, i);
-        temp = temp2;
-      }
-    });
-  }
-  prefix = temp === undefined ? "" : temp;
-
-  return prefix;
+  return res;
 };
-longestCommonPrefix();
 // @lc code=end
