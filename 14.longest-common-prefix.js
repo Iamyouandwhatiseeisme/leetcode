@@ -36,5 +36,5 @@ var longestCommonPrefix = function (strs) {
 
   return prefix;
 };
-longestCommonPrefix(["a"]);
+longestCommonPrefix();
 // @lc code=end
