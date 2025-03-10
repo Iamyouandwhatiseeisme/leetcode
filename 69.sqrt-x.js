@@ -12,8 +12,6 @@
 var mySqrt = function (x) {
   let sqrt = 0;
   for (let i = 1; i <= x; i++) {
-    console.log(i * i, x);
-
     if (i * i === x) {
       sqrt = i;
       break;
@@ -22,16 +20,20 @@ var mySqrt = function (x) {
   if (sqrt === 0) {
     let closestToSqrt = 1;
     for (let i = 1; i <= x; i++) {
-      console.log(i);
-
-      if (x - i * i < x - (i + 1) * (i + 1)) {
-        console.log(i * i - x, (i + 1) * (i + 1) - x, "last", i, i + 1, x);
+      console.log(x - i * i, x - (i + 1) * (i + 1), "not found exact sqrt");
+      let leftHandSiteSquar = x - i * i;
+      let rightHandSiteSquar = x - (i + 1) * (i + 1);
+      if (rightHandSiteSquar < 0) {
         sqrt = Math.floor(i);
-        // console.log(i * i);
+        break;
+      }
+      if (leftHandSiteSquar < rightHandSiteSquar) {
+        sqrt = Math.floor(i);
+        break;
       }
     }
   }
   return sqrt;
 };
-mySqrt(8);
+console.log(mySqrt(8));
 // @lc code=end
