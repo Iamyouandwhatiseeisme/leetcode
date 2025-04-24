@@ -18,7 +18,7 @@
  * @return {ListNode}
  */
 var mergeTwoLists = function (list1, list2) {
-  var listToreturn = [...list2, ...list1];
-  listToreturn.sort((a, b) => a - b);
+  var listToreturn = [...Array.from(list1), ...Array.from(list2)];
+  return listToreturn.sort((a, b) => a - b);
 };
 // @lc code=end
