@@ -10,6 +10,17 @@
  * @return {number}
  */
 var lengthOfLastWord = function (s) {
-  return 8;
+  let wordArray = [...s];
+  let wordWithoutSpace;
+  let lastIndexOfWord = wordArray.lastIndexOf(" ");
+  if (wordArray[wordArray.length - 1] !== " ") {
+    return wordArray.length - 1 - lastIndexOfWord;
+  } else {
+    wordArray.pop();
+
+    wordWithoutSpace = lengthOfLastWord(wordArray.join(""));
+  }
+  return wordWithoutSpace;
 };
+console.log(lengthOfLastWord("   fly me   to   the moon  "));
 // @lc code=end
