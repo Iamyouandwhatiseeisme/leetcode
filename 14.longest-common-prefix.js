@@ -11,7 +11,7 @@
  */
 var longestCommonPrefix = function (strs) {
   var prefix = "";
-  // var temp = "";
+  var temp = "";
   var shortestIndex;
   var currentWordLength = strs[0].length;
   for (var i = 0; i < strs.length; i++) {
